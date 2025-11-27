@@ -1,21 +1,16 @@
 # Use official PHP image with Apache
 FROM php:8.2-apache
 
-# Set working directory inside container
-WORKDIR /var/www/html
-
-# Copy all project files to container
+# Copy all project files to the web root
 COPY . /var/www/html/
 
-# Enable Apache mod_rewrite for clean URLs (if needed)
-RUN a2enmod rewrite
+# Update Apache to listen on Render's port
+ENV PORT 10000
+RUN sed -i "s/Listen 80/Listen $PORT/" /etc/apache2/ports.conf \
+    && sed -i "s/<VirtualHost \*:80>/<VirtualHost *:$PORT>/" /etc/apache2/sites-available/000-default.conf
 
-# Set proper permissions (optional but recommended)
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
+# Expose the port (Render uses $PORT automatically)
+EXPOSE $PORT
 
-# Expose default Apache port
-EXPOSE 80
-
-# Start Apache in foreground
+# Start Apache in the foreground
 CMD ["apache2-foreground"]
