@@ -76,16 +76,26 @@
             <input type="text" id="percentage" name="percentage" required>
         </div>
 
-        <!-- Skills -->
+        <!-- Skills as clickable boxes -->
         <div class="form-group">
-            <label>Skills (select multiple using Ctrl/Cmd)</label>
-            <select name="skills[]" multiple>
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSS</option>
-                <option value="JavaScript">JavaScript</option>
-                <option value="PHP">PHP</option>
-                <option value="Python">Python</option>
-            </select>
+            <label>Skills</label>
+            <div class="skills-container">
+                <label class="skill">
+                    <input type="checkbox" name="skills[]" value="HTML"><span>HTML</span>
+                </label>
+                <label class="skill">
+                    <input type="checkbox" name="skills[]" value="CSS"><span>CSS</span>
+                </label>
+                <label class="skill">
+                    <input type="checkbox" name="skills[]" value="JavaScript"><span>JavaScript</span>
+                </label>
+                <label class="skill">
+                    <input type="checkbox" name="skills[]" value="PHP"><span>PHP</span>
+                </label>
+                <label class="skill">
+                    <input type="checkbox" name="skills[]" value="Python"><span>Python</span>
+                </label>
+            </div>
         </div>
 
         <!-- Hobbies -->
