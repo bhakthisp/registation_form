@@ -24,7 +24,63 @@ $emergency_phone = $_POST['emergency_phone'];
 <head>
     <meta charset="UTF-8">
     <title>Submitted Application</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff; /* Light sky blue */
+            padding: 20px;
+        }
+
+        header h1 {
+            text-align: center;
+            color: #0059b3;
+            margin-bottom: 25px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 70%;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h2, h3 {
+            color: #0059b3;
+            border-left: 5px solid #66a3ff;
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        strong {
+            color: #004080;
+        }
+
+        .back-btn {
+            display: block;
+            width: 180px;
+            margin: 35px auto 0;
+            background-color: #0059b3;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            background-color: #004080;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,8 +90,8 @@ $emergency_phone = $_POST['emergency_phone'];
 </header>
 
 <div class="container">
-    <h2>Applicant Details</h2>
 
+    <h2>Applicant Details</h2>
     <p><strong>Name:</strong> <?php echo $name; ?></p>
     <p><strong>Email:</strong> <?php echo $email; ?></p>
     <p><strong>Phone:</strong> <?php echo $phone; ?></p>
@@ -57,8 +113,10 @@ $emergency_phone = $_POST['emergency_phone'];
     <p><strong>Name:</strong> <?php echo $emergency_name; ?></p>
     <p><strong>Relationship:</strong> <?php echo $relationship; ?></p>
     <p><strong>Phone:</strong> <?php echo $emergency_phone; ?></p>
+
 </div>
+
+<a href="index.html" class="back-btn">← Back to Form</a>
 
 </body>
 </html>
-
