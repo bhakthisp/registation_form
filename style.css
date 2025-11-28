@@ -56,6 +56,45 @@ h2 {
     margin-right: 5px;
 }
 
+/* Skills as clickable boxes */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    background: #e8f4ff;
+    border: 1px solid #4a90e2;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.skill input[type="checkbox"] {
+    display: none; /* hide default checkbox */
+}
+
+.skill span {
+    cursor: pointer;
+}
+
+.skill input[type="checkbox"]:checked + span {
+    background: #4a90e2;
+    color: white;
+    border-radius: 20px;
+    padding: 6px 12px;
+}
+
+.skill:hover {
+    background: #d0e6ff;
+}
+
+/* Submit button */
 .submit-btn {
     margin-top: 20px;
     padding: 12px;
