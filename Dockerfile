@@ -1,17 +1,14 @@
+# Use official PHP + Apache image
 FROM php:8.2-apache
-
-# Enable apache mods if needed (optional)
-RUN a2enmod rewrite
 
 # Copy project files
 COPY . /var/www/html/
 
-# Configure Apache to use Render's dynamic port
-RUN sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf \
- && sed -i "s/<VirtualHost \:80>/<VirtualHost \:${PORT}>/" /etc/apache2/sites-available/000-default.conf
+# Enable Apache rewrite module if needed
+RUN a2enmod rewrite
 
-# Expose the dynamic port
-EXPOSE ${PORT}
+# Expose port (Render ignores it, but required in Dockerfile)
+EXPOSE 10000
 
-# Start Apache server
+# Start Apache in foreground
 CMD ["apache2-foreground"]
