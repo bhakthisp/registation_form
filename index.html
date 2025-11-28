@@ -2,89 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Online Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="script.js"></script>
 </head>
-
 <body>
 
-<header>
-    <h1>Online Application Form</h1>
-</header>
+<header>Application Form</header>
 
 <div class="container">
-    <form action="submit.php" method="POST" id="regForm">
+    <h2>Applicant Information</h2>
 
-        <h2>Personal Information</h2>
+    <form action="submit.php" method="POST">
 
-        <label>Full Name:</label>
-        <input type="text" name="name" required>
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
 
-        <label>Email:</label>
-        <input type="email" name="email" required>
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
 
-        <label>Phone Number:</label>
-        <input type="text" name="phone" required>
+        <!-- Phone -->
+        <div class="form-group">
+            <label for="phone">Phone (10 digits)</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10" placeholder="1234567890" required>
+        </div>
 
-        <label>Date of Birth:</label>
-        <input type="date" name="dob" required>
+        <!-- Date of Birth -->
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
 
-        <label>Gender:</label>
-        <select name="gender" required>
-            <option value="" disabled selected>Select</option>
-            <option>Female</option>
-            <option>Male</option>
-            <option>Other</option>
-        </select>
+        <!-- Gender -->
+        <div class="form-group">
+            <label>Gender</label>
+            <input type="radio" id="male" name="gender" value="Male" required> Male
+            <input type="radio" id="female" name="gender" value="Female"> Female
+        </div>
 
-        <h2>Address</h2>
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
 
-        <label>Current Address:</label>
-        <textarea name="address" required></textarea>
+        <!-- Qualification -->
+        <div class="form-group">
+            <label for="qualification">Qualification</label>
+            <input type="text" id="qualification" name="qualification" required>
+        </div>
 
-        <h2>Educational Background</h2>
+        <!-- College -->
+        <div class="form-group">
+            <label for="college">College / Institution</label>
+            <input type="text" id="college" name="college" required>
+        </div>
 
-        <label>Highest Qualification:</label>
-        <input type="text" name="qualification" required>
+        <!-- Year of Passing -->
+        <div class="form-group">
+            <label for="year">Year of Passing</label>
+            <input type="number" id="year" name="year" min="1900" max="2100" required>
+        </div>
 
-        <label>Institution/College Name:</label>
-        <input type="text" name="college" required>
+        <!-- Percentage / CGPA -->
+        <div class="form-group">
+            <label for="percentage">Percentage / CGPA</label>
+            <input type="text" id="percentage" name="percentage" required>
+        </div>
 
-        <label>Year of Passing:</label>
-        <input type="number" name="year" min="1900" max="2100" required>
+        <!-- Skills -->
+        <div class="form-group">
+            <label>Skills (select multiple using Ctrl/Cmd)</label>
+            <select name="skills[]" multiple>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="PHP">PHP</option>
+                <option value="Python">Python</option>
+            </select>
+        </div>
 
-        <label>Percentage / CGPA:</label>
-        <input type="text" name="percentage" required>
+        <!-- Hobbies -->
+        <div class="form-group">
+            <label>Hobbies</label>
+            <input type="text" name="hobbies" placeholder="e.g. Reading, Music">
+        </div>
 
-        <h2>Skills / Hobbies</h2>
+        <!-- Emergency Contact -->
+        <div class="form-group">
+            <label for="emergency_name">Emergency Contact Name</label>
+            <input type="text" id="emergency_name" name="emergency_name" required>
+        </div>
 
-        <label>Skills:</label><br>
-        <input type="checkbox" name="skills[]" value="Programming"> Programming
-        <input type="checkbox" name="skills[]" value="Web Design"> Web Design
-        <input type="checkbox" name="skills[]" value="UI/UX"> UI/UX
-        <input type="checkbox" name="skills[]" value="Machine Learning"> Machine Learning
-        <br><br>
+        <div class="form-group">
+            <label for="relationship">Relationship</label>
+            <input type="text" id="relationship" name="relationship" required>
+        </div>
 
-        <label>Hobbies:</label>
-        <textarea name="hobbies"></textarea>
+        <div class="form-group">
+            <label for="emergency_phone">Emergency Contact Phone (10 digits)</label>
+            <input type="tel" id="emergency_phone" name="emergency_phone" pattern="[0-9]{10}" maxlength="10" placeholder="1234567890" required>
+        </div>
 
-        <h2>Emergency Contact</h2>
+        <button type="submit" class="submit-btn">Submit Application</button>
 
-        <label>Name:</label>
-        <input type="text" name="emergency_name" required>
-
-        <label>Relationship:</label>
-        <input type="text" name="relationship" required>
-
-        <label>Phone Number:</label>
-        <input type="text" name="emergency_phone" required>
-
-        <button type="submit">Submit Application</button>
     </form>
 </div>
 
 </body>
 </html>
-
